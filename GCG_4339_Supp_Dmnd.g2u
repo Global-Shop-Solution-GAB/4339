@@ -1,0 +1,151 @@
+Program.Sub.Preflight.Start
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.Control.If(V.Caller.Hook,=,14055)
+	F.Intrinsic.Control.CallSub(getdata)
+	F.Intrinsic.Control.CallSub(exit)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4339_Supp_Dmnd.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(exit)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+Program.Sub.Exit.Start
+F.Intrinsic.Control.SetErrorHandler("Exit_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!con.close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Exit_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4339_Supp_Dmnd.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Exit.End
+
+Program.Sub.getdata.Start
+F.Intrinsic.Control.SetErrorHandler("getdata_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.iRowCnt.Declare(Long)
+V.Local.sReadRow.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.sPart.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.sLine.Declare(String)
+V.Local.sTitle.Declare(String)
+V.Local.sSo.Declare(String)
+V.Local.sPo.Declare(String)
+
+'supply grid
+F.Intrinsic.BDF.Load("AUX001","AUX001")
+F.Intrinsic.BDF.Clone("AUX001","CLONE")
+
+F.Intrinsic.BDF.SetColumnTitle("CLONE",7,"Vendor Name]=[PW::180]=[]=[CA::7]=[")
+F.Intrinsic.BDF.SetColumnTitle("CLONE",8,"Customer Name]=[PW::180]=[]=[CA::7]=[")
+
+F.Intrinsic.BDF.ReadRowCount("AUX001",V.Local.iRowCnt)
+
+F.Intrinsic.Math.Sub(V.Local.iRowCnt,1,V.Local.iRowCnt)
+F.Intrinsic.Control.For(V.Local.i,0,V.Local.iRowCnt,1)
+	F.Intrinsic.BDF.ReadRow("AUX001",V.Local.i,V.Local.sReadRow)
+'	F.Intrinsic.BDF.WriteRow("CLONE",V.Local.sReadRow)
+	F.Intrinsic.String.Split(V.Local.sReadRow,"|~|",V.Local.sReadRow)
+
+	F.Intrinsic.String.Left(V.Local.sReadRow(0),7,V.Local.sPo)
+	F.Intrinsic.String.Build("Select Name_Vendor from V_PO_Header a left join V_Vendor_Master b on a.Vendor = b.Vendor where purchase_order = '{0}'",V.Local.sPo,V.Local.sSql)
+	F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",v.Local.sSql)
+	
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		V.Local.sReadRow(7).Set(V.ODBC.con!rst.FieldValTrim!Name_Vendor)
+		V.Local.sReadRow(8).Set("")
+	F.Intrinsic.Control.Else
+		V.Local.sReadRow(7).Set("")
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+'	F.Intrinsic.String.Build("{0}|~|{1}|~|{2}|~|{3}|~|{4}|~|{5}|~|{6}|~|{7}|~|{8}|~|{9}|~|{10}|~|{11}|~|{12}",V.Local.sReadRow(0),V.Local.sReadRow(1),V.Local.sReadRow(2),V.Local.sReadRow(3),V.Local.sReadRow(4),V.Local.sReadRow(5),V.Local.sReadRow(6),V.Local.sReadRow(7),V.Local.sReadRow(8),V.Local.sReadRow(9),V.Local.sReadRow(10),V.Local.sReadRow(11),V.Local.sReadRow(12),V.Local.sLine)
+	F.Intrinsic.String.Join(V.Local.sReadRow,"|~|",V.Local.sLine)
+	
+	F.Intrinsic.BDF.WriteRow("CLONE",V.Local.sLine)
+	
+F.Intrinsic.Control.Next(V.Local.i)
+
+F.Intrinsic.BDF.Save("CLONE","AUX001")
+
+'demand grid
+F.Intrinsic.BDF.Load("AUX002","AUX002")
+F.Intrinsic.BDF.Clone("AUX002","CLONE2")
+
+'F.Intrinsic.BDF.SetColumnTitle("CLONE2",12,"Vendor Name]=[PW::180]=[]=[CA::7]=[")
+F.Intrinsic.BDF.SetColumnTitle("CLONE2",13,"Customer Name]=[PW::180]=[]=[CA::7]=[")
+
+F.Intrinsic.BDF.ReadRowCount("AUX002",V.Local.iRowCnt)
+
+F.Intrinsic.String.Build("{0}{1}",V.Local.sPart,V.Passed.000099.Trim,V.Local.sPart)
+F.Intrinsic.String.Build("Select Name_Vendor From V_Inventory_Mst2 Where Part = '{0}' and Location = '{1}'",V.Local.sPart,V.Passed.000004.Trim,V.Local.sSql)
+F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",v.Local.sSql)
+
+F.Intrinsic.Math.Sub(V.Local.iRowCnt,1,V.Local.iRowCnt)
+F.Intrinsic.Control.For(V.Local.i,0,V.Local.iRowCnt,1)
+	F.Intrinsic.BDF.ReadRow("AUX002",V.Local.i,V.Local.sReadRow)
+	F.Intrinsic.BDF.WriteRow("CLONE2",V.Local.sReadRow)
+'	F.Intrinsic.String.Split(V.Local.sReadRow,"|~|",V.Local.sReadRow)
+'	
+'	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+'		V.Local.sReadRow(12).Set(V.ODBC.con!rst.FieldValTrim!Name_Vendor)
+'	F.Intrinsic.Control.Else
+'		V.Local.sReadRow(12).Set("")
+'	F.Intrinsic.Control.EndIf
+'	
+'	F.Intrinsic.String.Join(V.Local.sReadRow,"|~|",V.Local.sLine)
+''	F.Intrinsic.String.Build("{0}|~|{1}|~|{2}|~|{3}|~|{4}|~|{5}|~|{6}|~|{7}",V.Local.sReadRow(0),V.Local.sReadRow(1),V.Local.sReadRow(2),V.Local.sReadRow(3),V.Local.sReadRow(4),V.Local.sReadRow(5),V.Local.sReadRow(6),V.Local.sReadRow(7),V.Local.sLine)
+'	F.Intrinsic.BDF.WriteRow("CLONE2",V.Local.sLine)
+	
+F.Intrinsic.Control.Next(V.Local.i)
+
+F.ODBC.con!rst.Close
+
+F.Intrinsic.BDF.Save("CLONE2","AUX002")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("getdata_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4339_Supp_Dmnd.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(exit)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.getdata.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$RLK$}$4/4/2017 1:39:53 PM$}$False
+Program.Sub.Comments.End
