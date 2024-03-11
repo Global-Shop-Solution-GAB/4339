@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SyntaxEdit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BorderStyle>None</BorderStyle>
+  <Pages>
+    <DefaultPage>
+      <Header>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Header>
+      <Footer>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Footer>
+      <PageSize>
+        <Width>0</Width>
+        <Height>0</Height>
+      </PageSize>
+    </DefaultPage>
+  </Pages>
+  <DisplayStrings />
+  <Selection>
+    <SelectionRect>
+      <Location>
+        <X>0</X>
+        <Y>148</Y>
+      </Location>
+      <Size>
+        <Width>24</Width>
+        <Height>2</Height>
+      </Size>
+      <X>0</X>
+      <Y>148</Y>
+      <Width>24</Width>
+      <Height>2</Height>
+    </SelectionRect>
+    <Options>UseColors OverwriteBlocks SelectLineOnTripleClick CopyLineWhenEmpty SelectWordOnCtrlClick</Options>
+  </Selection>
+  <Gutter>
+    <LineNumbersForeColor>WindowText</LineNumbersForeColor>
+    <Options>PaintLineNumbers PaintBookMarks PaintLineModificators</Options>
+  </Gutter>
+  <Margin>
+    <Visible>false</Visible>
+  </Margin>
+  <LineStyles />
+  <LineSeparator />
+  <Printing>
+    <Footer>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Footer>
+    <Header>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Header>
+  </Printing>
+  <WhiteSpace />
+  <TextSource>
+    <Position>
+      <X>0</X>
+      <Y>148</Y>
+    </Position>
+    <Lexer>
+      <Scheme>
+        <Author>Quantum Whale, LLC.</Author>
+        <Copyright>Copyright (c) 2004 - 2014 Quantum Whale LLC.</Copyright>
+        <FileType>gas</FileType>
+        <Version>1.5</Version>
+        <Styles>
+          <Style>
+            <Name>idents</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>numbers</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>reswords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>comments</Name>
+            <ForeColor>Green</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>xmlcomments</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>symbols</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>whitespace</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>strings</Name>
+            <ForeColor>Maroon</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>directives</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>htmlparams</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>syntax errors</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>codes nippets</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>255:180:228:180</BackColor>
+          </Style>
+          <Style>
+            <Name>GabReservedWords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabTokenWithBrackets</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabFunctionIntrinsicDebug</Name>
+            <ForeColor>White</ForeColor>
+            <BackColor>Red</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>GabVariable</Name>
+            <ForeColor>Teal</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabVariableSystemDefined</Name>
+            <ForeColor>Teal</ForeColor>
+            <FontStyle>Bold Italic</FontStyle>
+          </Style>
+          <Style>
+            <Name>GabGui</Name>
+            <ForeColor>OrangeRed</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabProgramSubStartEnd</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>LightGray</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+        </Styles>
+      </Scheme>
+    </Lexer>
+    <TextStrings>
+      <Lines>
+        <string>Program.Sub.Preflight.Start</string>
+        <string />
+        <string>Program.Sub.Preflight.End</string>
+        <string />
+        <string>Program.Sub.Main.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Main_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string>F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)</string>
+        <string />
+        <string>F.Intrinsic.Control.If(V.Caller.Hook,=,14055)</string>
+        <string>	F.Intrinsic.Control.CallSub(getdata)</string>
+        <string>	F.Intrinsic.Control.CallSub(exit)</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Main_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4339_Supp_Dmnd.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(exit)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Main.End</string>
+        <string />
+        <string>Program.Sub.Exit.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Exit_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string>F.ODBC.Connection!con.close</string>
+        <string>F.Intrinsic.Control.End</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Exit_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4339_Supp_Dmnd.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.End</string>
+        <string />
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Exit.End</string>
+        <string />
+        <string>Program.Sub.getdata.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("getdata_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>V.Local.iRowCnt.Declare(Long)</string>
+        <string>V.Local.sReadRow.Declare(String)</string>
+        <string>V.Local.i.Declare(Long)</string>
+        <string>V.Local.sPart.Declare(String)</string>
+        <string>V.Local.sSql.Declare(String)</string>
+        <string>V.Local.sLine.Declare(String)</string>
+        <string>V.Local.sTitle.Declare(String)</string>
+        <string>V.Local.sSo.Declare(String)</string>
+        <string>V.Local.sPo.Declare(String)</string>
+        <string />
+        <string>'supply grid</string>
+        <string>F.Intrinsic.BDF.Load("AUX001","AUX001")</string>
+        <string>F.Intrinsic.BDF.Clone("AUX001","CLONE")</string>
+        <string />
+        <string>F.Intrinsic.BDF.SetColumnTitle("CLONE",7,"Vendor Name]=[PW::180]=[]=[CA::7]=[")</string>
+        <string>F.Intrinsic.BDF.SetColumnTitle("CLONE",8,"Customer Name]=[PW::180]=[]=[CA::7]=[")</string>
+        <string />
+        <string>F.Intrinsic.BDF.ReadRowCount("AUX001",V.Local.iRowCnt)</string>
+        <string />
+        <string>F.Intrinsic.Math.Sub(V.Local.iRowCnt,1,V.Local.iRowCnt)</string>
+        <string>F.Intrinsic.Control.For(V.Local.i,0,V.Local.iRowCnt,1)</string>
+        <string>	F.Intrinsic.BDF.ReadRow("AUX001",V.Local.i,V.Local.sReadRow)</string>
+        <string>'	F.Intrinsic.BDF.WriteRow("CLONE",V.Local.sReadRow)</string>
+        <string>	F.Intrinsic.String.Split(V.Local.sReadRow,"|~|",V.Local.sReadRow)</string>
+        <string />
+        <string>	F.Intrinsic.String.Left(V.Local.sReadRow(0),7,V.Local.sPo)</string>
+        <string>	F.Intrinsic.String.Build("Select Name_Vendor from V_PO_Header a left join V_Vendor_Master b on a.Vendor = b.Vendor where purchase_order = '{0}'",V.Local.sPo,V.Local.sSql)</string>
+        <string>	F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",v.Local.sSql)</string>
+        <string>	</string>
+        <string>	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)</string>
+        <string>		V.Local.sReadRow(7).Set(V.ODBC.con!rst.FieldValTrim!Name_Vendor)</string>
+        <string>		V.Local.sReadRow(8).Set("")</string>
+        <string>	F.Intrinsic.Control.Else</string>
+        <string>		V.Local.sReadRow(7).Set("")</string>
+        <string>	F.Intrinsic.Control.EndIf</string>
+        <string>	F.ODBC.con!rst.Close</string>
+        <string>'	F.Intrinsic.String.Build("{0}|~|{1}|~|{2}|~|{3}|~|{4}|~|{5}|~|{6}|~|{7}|~|{8}|~|{9}|~|{10}|~|{11}|~|{12}",V.Local.sReadRow(0),V.Local.sReadRow(1),V.Local.sReadRow(2),V.Local.sReadRow(3),V.Local.sReadRow(4),V.Local.sReadRow(5),V.Local.sReadRow(6),V.Local.sReadRow(7),V.Local.sReadRow(8),V.Local.sReadRow(9),V.Local.sReadRow(10),V.Local.sReadRow(11),V.Local.sReadRow(12),V.Local.sLine)</string>
+        <string>	F.Intrinsic.String.Join(V.Local.sReadRow,"|~|",V.Local.sLine)</string>
+        <string>	</string>
+        <string>	F.Intrinsic.BDF.WriteRow("CLONE",V.Local.sLine)</string>
+        <string>	</string>
+        <string>F.Intrinsic.Control.Next(V.Local.i)</string>
+        <string />
+        <string>F.Intrinsic.BDF.Save("CLONE","AUX001")</string>
+        <string />
+        <string>'demand grid</string>
+        <string>F.Intrinsic.BDF.Load("AUX002","AUX002")</string>
+        <string>F.Intrinsic.BDF.Clone("AUX002","CLONE2")</string>
+        <string />
+        <string>'F.Intrinsic.BDF.SetColumnTitle("CLONE2",12,"Vendor Name]=[PW::180]=[]=[CA::7]=[")</string>
+        <string>F.Intrinsic.BDF.SetColumnTitle("CLONE2",13,"Customer Name]=[PW::180]=[]=[CA::7]=[")</string>
+        <string />
+        <string>F.Intrinsic.BDF.ReadRowCount("AUX002",V.Local.iRowCnt)</string>
+        <string />
+        <string>F.Intrinsic.String.Build("{0}{1}",V.Local.sPart,V.Passed.000099.Trim,V.Local.sPart)</string>
+        <string>F.Intrinsic.String.Build("Select Name_Vendor From V_Inventory_Mst2 Where Part = '{0}' and Location = '{1}'",V.Local.sPart,V.Passed.000004.Trim,V.Local.sSql)</string>
+        <string>F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",v.Local.sSql)</string>
+        <string />
+        <string>F.Intrinsic.Math.Sub(V.Local.iRowCnt,1,V.Local.iRowCnt)</string>
+        <string>F.Intrinsic.Control.For(V.Local.i,0,V.Local.iRowCnt,1)</string>
+        <string>	F.Intrinsic.BDF.ReadRow("AUX002",V.Local.i,V.Local.sReadRow)</string>
+        <string>	F.Intrinsic.BDF.WriteRow("CLONE2",V.Local.sReadRow)</string>
+        <string>'	F.Intrinsic.String.Split(V.Local.sReadRow,"|~|",V.Local.sReadRow)</string>
+        <string>'	</string>
+        <string>'	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)</string>
+        <string>'		V.Local.sReadRow(12).Set(V.ODBC.con!rst.FieldValTrim!Name_Vendor)</string>
+        <string>'	F.Intrinsic.Control.Else</string>
+        <string>'		V.Local.sReadRow(12).Set("")</string>
+        <string>'	F.Intrinsic.Control.EndIf</string>
+        <string>'	</string>
+        <string>'	F.Intrinsic.String.Join(V.Local.sReadRow,"|~|",V.Local.sLine)</string>
+        <string>''	F.Intrinsic.String.Build("{0}|~|{1}|~|{2}|~|{3}|~|{4}|~|{5}|~|{6}|~|{7}",V.Local.sReadRow(0),V.Local.sReadRow(1),V.Local.sReadRow(2),V.Local.sReadRow(3),V.Local.sReadRow(4),V.Local.sReadRow(5),V.Local.sReadRow(6),V.Local.sReadRow(7),V.Local.sLine)</string>
+        <string>'	F.Intrinsic.BDF.WriteRow("CLONE2",V.Local.sLine)</string>
+        <string>	</string>
+        <string>F.Intrinsic.Control.Next(V.Local.i)</string>
+        <string />
+        <string>F.ODBC.con!rst.Close</string>
+        <string />
+        <string>F.Intrinsic.BDF.Save("CLONE2","AUX002")</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("getdata_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4339_Supp_Dmnd.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(exit)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.getdata.End</string>
+        <string />
+        <string>Program.Sub.Comments.Start</string>
+        <string>${$0$}$$}$RLK$}$4/4/2017 1:39:53 PM$}$False</string>
+        <string>Program.Sub.Comments.End</string>
+      </Lines>
+    </TextStrings>
+  </TextSource>
+  <Scrolling>
+    <WindowOriginY>93</WindowOriginY>
+    <Options>None</Options>
+  </Scrolling>
+  <Outlining>
+    <AllowOutlining>true</AllowOutlining>
+    <ImageSize>8</ImageSize>
+    <Ranges>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>0</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>2</Y>
+        </EndPoint>
+        <Text>Program.Sub.Preflight</Text>
+        <DisplayText>Program.Sub.Preflight</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>4</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>27</Y>
+        </EndPoint>
+        <Text>Program.Sub.Main</Text>
+        <DisplayText>Program.Sub.Main</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>29</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>49</Y>
+        </EndPoint>
+        <Text>Program.Sub.Exit</Text>
+        <DisplayText>Program.Sub.Exit</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>51</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>146</Y>
+        </EndPoint>
+        <Text>Program.Sub.getdata</Text>
+        <DisplayText>Program.Sub.getdata</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>148</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>150</Y>
+        </EndPoint>
+        <Text>Program.Sub.Comments</Text>
+        <DisplayText>Program.Sub.Comments</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+    </Ranges>
+  </Outlining>
+  <HyperText />
+  <Spelling />
+  <Braces />
+</SyntaxEdit>
